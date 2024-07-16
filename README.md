@@ -7,7 +7,9 @@ Features include:
 - 🔎 View summaries and other insights across your notes
 - 🙋 Chat with your notes (via Gemini)
 
-![Screenshot of AutoNotes demo](docs/images/anne_preview.png)
+[Read the Medium article](https://medium.com/people-ai-research/adventures-with-ai-powered-notetaking-4aed40f006c1)
+
+![Screenshot of AutoNotes demo](docs/images/autonotes_tour.gif)
 
 ## Using AutoNotes
 
@@ -63,7 +65,7 @@ If a summary is not shown, click the replay/redo arrow icon to generate it.
 
 Click directly on a tag to view all associated notes.
 
-![Screenshot of tag-specific note feed](docs/images/anne_tag_category_personalgrowth-friendship.png)
+![Screenshot of tag-specific note feed](docs/images/anne_insights_personalgrowth_highlighted.png)
 
 > NOTE: Generating summaries requires an AI Studio Gemini API key
 (see "Calling the Gemini API" below)

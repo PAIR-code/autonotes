@@ -92,13 +92,17 @@ export class StorageService extends Service {
     this.sp.indexedDbService.loadPinnedTagsData(projectId, onTagsSuccess);
 
     const onTagSummarySuccess = (tagSummaryItems: TagSummaryItem[]) => {
-      // If has onboarding notes, make sure #autonotes tag summary is present
+      // If has onboarding notes, make sure tag summaries are present
       if (
-        tagSummaryItems.find(item => item.tag === "autonotes") === undefined &&
         this.sp.notebookService.notes.find(note => note.id === ONBOARDING_NOTE_INTRO_ID) &&
         this.sp.notebookService.notes.find(note => note.id === ONBOARDING_NOTE_INFO_ID)
       ) {
-        tagSummaryItems.push(makeOnboardingTagSummary());
+        if (tagSummaryItems.find(item => item.tag === "notetaking/autonotes") === undefined) {
+          tagSummaryItems.push(makeOnboardingTagSummary("notetaking/autonotes"));
+        }
+        if (tagSummaryItems.find(item => item.tag === "notetaking") === undefined) {
+          tagSummaryItems.push(makeOnboardingTagSummary("notetaking"));
+        }
       }
 
       this.sp.notebookService.setTagSummaries(tagSummaryItems);

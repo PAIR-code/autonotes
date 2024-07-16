@@ -55,16 +55,20 @@ Feel free to delete this note and start making your own!
   welcomeNote.body = body;
   welcomeNote.previews = previews;
   welcomeNote.id = ONBOARDING_NOTE_INTRO_ID;
-  welcomeNote.tags = ["#autonotes"];
+  welcomeNote.tags = ["#notetaking/autonotes"];
 
   const aboutNote = makeBlankNote();
   aboutNote.title = "📖 About AutoNotes";
-  const aboutContent = `AutoNotes was launched in July 2024 by People & AI Research (PAIR).`;
+  const aboutContent = `AutoNotes was launched in July 2024 by People & AI Research (PAIR).
+
+- [Read the Medium article](https://medium.com/people-ai-research/adventures-with-ai-powered-notetaking-4aed40f006c1)
+- [View code on GitHub](https://github.com/pair-code/autonotes)
+`;
   const parsedContent = parseRawNoteContent(aboutContent);
   aboutNote.markdown = `${aboutContent}\n\n#autonotes`;
   aboutNote.body = parsedContent.body;
   aboutNote.previews = parsedContent.previews;
-  aboutNote.tags = ["#autonotes"];
+  aboutNote.tags = ["#notetaking/autonotes"];
   aboutNote.id = ONBOARDING_NOTE_INFO_ID;
 
   return [welcomeNote, aboutNote];
@@ -92,7 +96,7 @@ Like my friends Gemini and ChatGPT, I can also answer other questions that you m
   return [message];
 }
 
-export function makeOnboardingTagSummary(): TagSummaryItem {
-  const autonotesSummary = {"tag":"autonotes","summary":`**AutoNotes** is an AI-powered notetaking experiment launched in **July 2024** by **People & AI Research (PAIR)** [(note)](#/notes/?noteId=${ONBOARDING_NOTE_INFO_ID}). It helps you organize and explore your personal notes with features like:\n\n- Hierarchical tagging\n- Chat with your notes\n- Fun highlights [(note)](#/notes/?noteId=${ONBOARDING_NOTE_INTRO_ID})`} as TagSummaryItem;
+export function makeOnboardingTagSummary(tagName: string): TagSummaryItem {
+  const autonotesSummary = {"tag": tagName, "summary": `**AutoNotes** is an AI-powered notetaking experiment launched in July 2024 by **People & AI Research (PAIR)**. It features:\n\n- Hierarchical tagging [(note)](#/notes/?noteId=${ONBOARDING_NOTE_INTRO_ID})\n- Chat with your notes [(note)](#/notes/?noteId=${ONBOARDING_NOTE_INTRO_ID})\n- Fun highlights [(note)](#/notes/?noteId=${ONBOARDING_NOTE_INTRO_ID})\n\nRead the article on [Medium](https://medium.com/people-ai-research/adventures-with-ai-powered-notetaking-4aed40f006c1) or view the code on [GitHub](https://github.com/pair-code/autonotes) [(note)](#/notes/?noteId=${ONBOARDING_NOTE_INFO_ID}).`} as TagSummaryItem;
   return autonotesSummary;
 }
