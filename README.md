@@ -7,7 +7,7 @@ Features include:
 - 🔎 View summaries and other insights across your notes
 - 🙋 Chat with your notes (via Gemini)
 
-![Screenshot of AutoNotes demo](documentation/images/anne_preview.png)
+![Screenshot of AutoNotes demo](docs/images/anne_preview.png)
 
 ## Using AutoNotes
 
@@ -42,7 +42,7 @@ and `Generate summaries` options in Settings (above the import section).
 Navigate to the `Notes` page and use the microphone or keyboard to capture a
 note (in Markdown) at the bottom of the screen.
 
-![Screenshot of new note](documentation/images/anne_new_note.png)
+![Screenshot of new note](docs/images/anne_new_note.png)
 
 You can apply your own tags using the `#tag` format;
 if you do not specify any tags, AutoNotes will auto-tag your notes.
@@ -63,7 +63,7 @@ If a summary is not shown, click the replay/redo arrow icon to generate it.
 
 Click directly on a tag to view all associated notes.
 
-![Screenshot of tag-specific note feed](documentation/images/anne_tag_category_personalgrowth-friendship.png)
+![Screenshot of tag-specific note feed](docs/images/anne_tag_category_personalgrowth-friendship.png)
 
 > NOTE: Generating summaries requires an AI Studio Gemini API key
 (see "Calling the Gemini API" below)
@@ -73,7 +73,7 @@ This feature works better when your project contains
 descriptive content (as opposed to grocery lists or other brief reminders),
 but we hope it's fun regardless 🎁
 
-![Screenshot of highlights](documentation/images/anne_highlights.png)
+![Screenshot of highlights](docs/images/anne_highlights.png)
 
 ### 🙋 Chatting with your notes
 
@@ -86,7 +86,7 @@ similar to Alice in Wonderland?"), or a combination of the two (e.g.,
 > NOTE: Chatting requires an AI Studio Gemini API key
 (see "Calling the Gemini API" below)
 
-![Screenshot of chat response with referenced notes](documentation/images/anne_chat_lake.png)
+![Screenshot of chat response with referenced notes](docs/images/anne_chat_lake.png)
 
 If the response is based on your notes, you can click "See referenced notes"
 to view those notes.
