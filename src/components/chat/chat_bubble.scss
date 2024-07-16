@@ -1,0 +1,108 @@
+/**
+ * Copyright 2024 Google LLC
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+@use "../../sass/colors";
+@use "../../sass/common";
+@use "../../sass/html";
+@use "../../sass/typescale";
+
+$bubble-radius: 20px;
+$bubble-radius-small: 2px;
+
+.bubble {
+  @include common.flex-column;
+  justify-content: end;
+
+  gap: common.$spacing-small;
+}
+
+.chat-bubble {
+  @include common.flex-column;
+  @include typescale.body-small;
+  align-items: end;
+  gap: common.$spacing-medium;
+  padding: common.$spacing-medium common.$spacing-large;
+  background: var(--md-sys-color-surface-container-low);
+  border-radius: $bubble-radius $bubble-radius $bubble-radius-small
+    $bubble-radius;
+  max-width: 80%;
+  width: max-content;
+  align-self: end;
+
+  &.model {
+    background: var(--md-sys-color-secondary-container);
+    border-radius: $bubble-radius $bubble-radius $bubble-radius
+      $bubble-radius-small;
+    align-self: start;
+  }
+
+  &.pressed {
+    animation: 0.25s linear bounce;
+  }
+}
+
+.chat-body {
+  @include common.flex-column;
+  @include html.preview;
+}
+
+.referenced-notes {
+  @include typescale.label-small;
+  cursor: pointer;
+}
+
+.action-bar--wrapper {
+  @include common.flex-row;
+  justify-content: end;
+
+  height: 0;
+  width: 100%;
+
+  &.model {
+    justify-content: start;
+  }
+}
+
+.action-bar {
+  @include common.flex-row;
+  gap: common.$spacing-medium;
+  justify-content: end;
+  height: 0;
+  overflow: hidden;
+  width: 100%;
+
+  &.hover {
+    display: flex;
+    height: calc(var(--md-sys-typescale-body-small-line-height) * 2);
+    transition-delay: 0.3s;
+    transition-property: height;
+  }
+}
+
+.model {
+  .action-bar {
+    justify-content: start;
+  }
+}
+
+@keyframes bounce {
+  from {
+    transform: translateY(-2px);
+  }
+  to {
+    transform: translateY(0);
+  }
+}

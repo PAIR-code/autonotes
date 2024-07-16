@@ -1,0 +1,119 @@
+/**
+ * Copyright 2024 Google LLC
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+@use "../../sass/colors";
+@use "../../sass/common";
+@use "../../sass/html";
+@use "../../sass/typescale";
+
+:host {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: auto;
+}
+
+.tags-row {
+  @include common.flex-row-align-center;
+  gap: common.$spacing-medium;
+  padding: common.$panel-component-padding common.$panel-component-padding 0;
+
+  .label {
+    @include typescale.title-medium;
+    font-weight: 500;
+  }
+
+  .tags {
+    @include common.flex-row-align-center;
+    gap: common.$spacing-medium;
+
+    overflow: hidden;
+  }
+}
+
+.tag {
+  @include common.tag;
+}
+
+h2 {
+  @include typescale.title-medium;
+  font-weight: 500;
+  margin: 0;
+}
+
+p {
+  margin: 0;
+}
+
+.empty {
+  font-style: italic;
+}
+
+.top-info {
+  @include common.flex-column;
+}
+
+.summary,
+.related-tags {
+  @include common.flex-column;
+  @include html.preview;
+  border-bottom: 1px solid var(--md-sys-color-outline-variant);
+  gap: common.$spacing-medium;
+  padding: common.$panel-component-padding;
+
+  u {
+    cursor: pointer;
+  }
+
+  &:last-of-type {
+    border-bottom: none;
+  }
+}
+
+.related-tags-zone {
+  display: flex;
+  flex-wrap: wrap;
+  gap: common.$spacing-medium;
+}
+
+.related-tag {
+  --pr-button-padding: 0 8px;
+}
+
+.notes {
+  @include common.flex-column;
+  align-items: stretch;
+  flex-shrink: 1;
+  gap: common.$spacing-xl;
+  height: 100%;
+  overflow: auto;
+  padding: common.$panel-component-padding;
+}
+
+.input {
+  @include common.flex-row-align-center;
+  gap: common.$spacing-small;
+  padding: common.$spacing-xl 0;
+
+  position: fixed;
+  bottom: 0px;
+
+  input {
+    flex-grow: 1;
+    width: 500px;
+  }
+}

@@ -1,0 +1,97 @@
+/**
+ * Copyright 2024 Google LLC
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+@use "../../sass/colors";
+@use "../../sass/common";
+@use "../../sass/typescale";
+
+:host {
+  @include common.flex-column;
+}
+
+.history {
+  @include common.flex-column;
+  gap: common.$spacing-xl;
+
+  max-width: common.$main-column-max-width;
+  padding: common.$panel-component-padding;
+}
+
+.header {
+  @include common.flex-row-align-center;
+  gap: common.$spacing-large;
+
+  .actions {
+    @include common.flex-row-align-center;
+    gap: common.$spacing-large;
+  }
+}
+
+.action-buttons {
+  @include common.flex-row;
+  flex-wrap: wrap;
+  gap: common.$spacing-large;
+}
+
+.stat {
+  @include typescale.body-medium;
+}
+
+.call {
+  padding: common.$spacing-large common.$spacing-xl;
+  background: var(--md-sys-color-background);
+
+  @include common.flex-column;
+  gap: common.$spacing-large;
+
+  border-radius: 8px;
+}
+
+.call--summary {
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+}
+
+.call--header {
+  @include common.flex-column;
+  gap: common.$spacing-thin;
+
+  .timestamp {
+    @include typescale.label-small;
+    color: var(--md-sys-color-on-surface-variant);
+  }
+
+  h3 {
+    @include typescale.title-medium;
+    margin: 0;
+    text-transform: capitalize;
+  }
+}
+
+.call--row {
+  @include common.flex-column;
+  gap: common.$spacing-small;
+
+  label {
+    @include typescale.label-small;
+    color: var(--md-sys-color-primary);
+  }
+
+  &.clear {
+    justify-self: center;
+  }
+}

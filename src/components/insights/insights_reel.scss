@@ -1,0 +1,104 @@
+/**
+ * Copyright 2024 Google LLC
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+@use "../../sass/colors";
+@use "../../sass/common";
+@use "../../sass/typescale";
+
+:host {
+  @include common.flex-column;
+  gap: common.$spacing-xl;
+  padding: common.$panel-component-padding;
+}
+
+.banner {
+  background: var(--md-sys-color-error-container);
+  color: var(--md-sys-color-on-error-container);
+  border-radius: common.$spacing-medium;
+  padding: common.$spacing-medium common.$spacing-large;
+  max-width: 80%;
+  width: max-content;
+}
+
+.example-buttons {
+  @include common.flex-row;
+  align-items: center;
+  gap: common.$spacing-large;
+}
+
+.loading {
+  @include typescale.body-medium;
+}
+
+.card-wrapper {
+  display: grid;
+  gap: common.$spacing-xl;
+  grid-template-columns: repeat(2, 1fr);
+  width: 100%;
+}
+
+@include common.viewport-small {
+  .card-wrapper {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+.card {
+  @include common.flex-column;
+  background: var(--md-sys-color-surface);
+  border-radius: common.$spacing-large;
+  color: var(--md-sys-color-on-surface);
+  gap: common.$spacing-medium;
+  max-width: 500px;
+  padding: common.$spacing-xl;
+
+  &.primary {
+    background: var(--md-sys-color-primary-container);
+    color: var(--md-sys-color-on-primary-container);
+  }
+
+  &.secondary {
+    background: var(--md-sys-color-secondary-container);
+    color: var(--md-sys-color-on-secondary-container);
+  }
+
+  &.tertiary {
+    background: var(--md-sys-color-tertiary-container);
+    color: var(--md-sys-color-on-tertiary-container);
+  }
+
+  &.error {
+    background: var(--md-sys-color-error-container);
+    color: var(--md-sys-color-on-error-container);
+  }
+}
+
+.card--title {
+  @include typescale.label-medium;
+  text-transform: uppercase;
+}
+
+.card--body {
+  @include typescale.title-large;
+  font-weight: 500;
+}
+
+.card--ref {
+  @include typescale.label-medium;
+  cursor: pointer;
+  font-style: italic;
+  text-align: right;
+}

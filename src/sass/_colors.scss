@@ -1,0 +1,551 @@
+/**
+ * Copyright 2024 Google LLC
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+/**
+ * Mixins for color themes, including:
+ *
+ * - Winterglow
+ * - Sugarplum
+ */
+
+/* Winterglow reference definitions. Can use to define light/dark mixins. */
+@mixin winterglow-ref {
+  --winteflow-source: #c8d6dc;
+  /* primary */
+  --winterglow-ref-palette-primary0: #000;
+  --winterglow-ref-palette-primary4: #001016;
+  --winterglow-ref-palette-primary5: #00131a;
+  --winterglow-ref-palette-primary6: #00161d;
+  --winterglow-ref-palette-primary10: #001f27;
+  --winterglow-ref-palette-primary12: #00232d;
+  --winterglow-ref-palette-primary17: #002e3a;
+  --winterglow-ref-palette-primary20: #003542;
+  --winterglow-ref-palette-primary22: #003a48;
+  --winterglow-ref-palette-primary24: #003f4e;
+  --winterglow-ref-palette-primary25: #004151;
+  --winterglow-ref-palette-primary30: #004e5f;
+  --winterglow-ref-palette-primary35: #005a6e;
+  --winterglow-ref-palette-primary40: #00677e;
+  --winterglow-ref-palette-primary50: #00829e;
+  --winterglow-ref-palette-primary60: #009ebf;
+  --winterglow-ref-palette-primary70: #34b9dc;
+  --winterglow-ref-palette-primary80: #5ad5f9;
+  --winterglow-ref-palette-primary87: #9be5ff;
+  --winterglow-ref-palette-primary90: #b4ebff;
+  --winterglow-ref-palette-primary92: #c5efff;
+  --winterglow-ref-palette-primary94: #d5f3ff;
+  --winterglow-ref-palette-primary95: #dcf5ff;
+  --winterglow-ref-palette-primary96: #e4f7ff;
+  --winterglow-ref-palette-primary98: #f2fbff;
+  --winterglow-ref-palette-primary99: #f9fdff;
+  --winterglow-ref-palette-primary100: #fff;
+  /* secondary */
+  --winterglow-ref-palette-secondary0: #000;
+  --winterglow-ref-palette-secondary4: #000e23;
+  --winterglow-ref-palette-secondary5: #001128;
+  --winterglow-ref-palette-secondary6: #00142c;
+  --winterglow-ref-palette-secondary10: #001c3a;
+  --winterglow-ref-palette-secondary12: #002041;
+  --winterglow-ref-palette-secondary20: #00315e;
+  --winterglow-ref-palette-secondary22: #002a53;
+  --winterglow-ref-palette-secondary25: #003c71;
+  --winterglow-ref-palette-secondary30: #004785;
+  --winterglow-ref-palette-secondary35: #025399;
+  --winterglow-ref-palette-secondary40: #1d5fa6;
+  --winterglow-ref-palette-secondary50: #3e79c0;
+  --winterglow-ref-palette-secondary60: #5b93dc;
+  --winterglow-ref-palette-secondary70: #77adf9;
+  --winterglow-ref-palette-secondary80: #a5c8ff;
+  --winterglow-ref-palette-secondary87: #c6dbff;
+  --winterglow-ref-palette-secondary90: #d4e3ff;
+  --winterglow-ref-palette-secondary92: #dde9ff;
+  --winterglow-ref-palette-secondary94: #e7eeff;
+  --winterglow-ref-palette-secondary95: #ebf1ff;
+  --winterglow-ref-palette-secondary96: #f0f3ff;
+  --winterglow-ref-palette-secondary98: #f9f9ff;
+  --winterglow-ref-palette-secondary99: #fdfcff;
+  --winterglow-ref-palette-secondary100: #fff;
+  /* tertiary */
+  --winterglow-ref-palette-tertiary0: #000;
+  --winterglow-ref-palette-tertiary10: #030865;
+  --winterglow-ref-palette-tertiary20: #1f2578;
+  --winterglow-ref-palette-tertiary25: #2b3283;
+  --winterglow-ref-palette-tertiary30: #373e90;
+  --winterglow-ref-palette-tertiary35: #434a9c;
+  --winterglow-ref-palette-tertiary40: #4f56a9;
+  --winterglow-ref-palette-tertiary50: #686fc4;
+  --winterglow-ref-palette-tertiary60: #8289e0;
+  --winterglow-ref-palette-tertiary70: #9da4fd;
+  --winterglow-ref-palette-tertiary80: #bec2ff;
+  --winterglow-ref-palette-tertiary90: #e0e0ff;
+  --winterglow-ref-palette-tertiary95: #f1efff;
+  --winterglow-ref-palette-tertiary98: #fbf8ff;
+  --winterglow-ref-palette-tertiary99: #fffbff;
+  --winterglow-ref-palette-tertiary100: #fff;
+  /* neutral */
+  --winterglow-ref-palette-neutral0: #000;
+  --winterglow-ref-palette-neutral4: #f0f3ff;
+  --winterglow-ref-palette-neutral6: #111415;
+  --winterglow-ref-palette-neutral10: #191c1d;
+  --winterglow-ref-palette-neutral12: #111415;
+  --winterglow-ref-palette-neutral17: #272a2c;
+  --winterglow-ref-palette-neutral20: #2e3132;
+  --winterglow-ref-palette-neutral22: #323537;
+  --winterglow-ref-palette-neutral24: #373a3b;
+  --winterglow-ref-palette-neutral25: #393c3d;
+  --winterglow-ref-palette-neutral30: #444749;
+  --winterglow-ref-palette-neutral35: #505354;
+  --winterglow-ref-palette-neutral40: #5c5f60;
+  --winterglow-ref-palette-neutral50: #757779;
+  --winterglow-ref-palette-neutral60: #8e9192;
+  --winterglow-ref-palette-neutral70: #a9abad;
+  --winterglow-ref-palette-neutral80: #c5c7c8;
+  --winterglow-ref-palette-neutral87: #d8dadc;
+  --winterglow-ref-palette-neutral90: #e1e3e4;
+  --winterglow-ref-palette-neutral92: #e7e8ea;
+  --winterglow-ref-palette-neutral94: #eceeef;
+  --winterglow-ref-palette-neutral95: #eff1f2;
+  --winterglow-ref-palette-neutral96: #e7e8ea;
+  --winterglow-ref-palette-neutral98: #f8f9fb;
+  --winterglow-ref-palette-neutral99: #fbfcfe;
+  --winterglow-ref-palette-neutral100: #fff;
+  /* neutral-variant */
+  --winterglow-ref-palette-neutral-variant0: #000;
+  --winterglow-ref-palette-neutral-variant10: #151d20;
+  --winterglow-ref-palette-neutral-variant20: #293235;
+  --winterglow-ref-palette-neutral-variant25: #343d40;
+  --winterglow-ref-palette-neutral-variant30: #40484b;
+  --winterglow-ref-palette-neutral-variant35: #4b5457;
+  --winterglow-ref-palette-neutral-variant40: #576063;
+  --winterglow-ref-palette-neutral-variant50: #70787c;
+  --winterglow-ref-palette-neutral-variant60: #899296;
+  --winterglow-ref-palette-neutral-variant70: #a4adb0;
+  --winterglow-ref-palette-neutral-variant80: #bfc8cc;
+  --winterglow-ref-palette-neutral-variant90: #dbe4e8;
+  --winterglow-ref-palette-neutral-variant94: #e7eff3;
+  --winterglow-ref-palette-neutral-variant95: #eaf2f6;
+  --winterglow-ref-palette-neutral-variant98: #f2fbff;
+  --winterglow-ref-palette-neutral-variant99: #f9fdff;
+  --winterglow-ref-palette-neutral-variant100: #fff;
+  /* error */
+  --winterglow-ref-palette-error0: #000;
+  --winterglow-ref-palette-error10: #410002;
+  --winterglow-ref-palette-error20: #690005;
+  --winterglow-ref-palette-error25: #7e0007;
+  --winterglow-ref-palette-error30: #93000a;
+  --winterglow-ref-palette-error35: #a80710;
+  --winterglow-ref-palette-error40: #ba1a1a;
+  --winterglow-ref-palette-error50: #de3730;
+  --winterglow-ref-palette-error60: #ff5449;
+  --winterglow-ref-palette-error70: #ff897d;
+  --winterglow-ref-palette-error80: #ffb4ab;
+  --winterglow-ref-palette-error90: #ffdad6;
+  --winterglow-ref-palette-error95: #ffedea;
+  --winterglow-ref-palette-error98: #fff8f7;
+  --winterglow-ref-palette-error99: #fffbff;
+  --winterglow-ref-palette-error100: #fff;
+}
+
+/* Winterglow light theme. */
+@mixin winterglow-light {
+  --md-sys-color-primary: #00677e;
+  --md-sys-color-on-primary: #fff;
+  --md-sys-color-primary-container: #b4ebff;
+  --md-sys-color-on-primary-container: #001f27;
+  --md-sys-color-secondary: #1d5fa6;
+  --md-sys-color-on-secondary: #fff;
+  --md-sys-color-secondary-container: #d4e3ff;
+  --md-sys-color-on-secondary-container: #001c3a;
+  --md-sys-color-tertiary: #4f56a9;
+  --md-sys-color-on-tertiary: #fff;
+  --md-sys-color-tertiary-container: #e0e0ff;
+  --md-sys-color-on-tertiary-container: #030865;
+  --md-sys-color-error: #ba1a1a;
+  --md-sys-color-error-container: #ffdad6;
+  --md-sys-color-on-error: #fff;
+  --md-sys-color-on-error-container: #410002;
+  --md-sys-color-background: #fbfcfe;
+  --md-sys-color-on-background: #191c1d;
+  --md-sys-color-surface: #fbfcfe;
+  --md-sys-color-on-surface: #191c1d;
+  --md-sys-color-surface-variant: #e7eff3; // neutral-variant94
+  --md-sys-color-on-surface-variant: #40484b;
+  --md-sys-color-surface-container-highest: #e1e3e4; // neutral90
+  --md-sys-color-surface-container-high: #e7e8ea; // neutral92
+  --md-sys-color-surface-container: #eceeef; // neutral94
+  --md-sys-color-surface-container-low: #fbfcfe; // neutral99
+  --md-sys-color-surface-container-lowest: #fff; // neutral100
+  --md-sys-color-outline: #70787c;
+  --md-sys-color-inverse-on-surface: #eff1f2;
+  --md-sys-color-inverse-surface: #2e3132;
+  --md-sys-color-inverse-primary: #5ad5f9;
+  --md-sys-color-shadow: #000;
+  --md-sys-color-surface-tint: #00677e;
+  --md-sys-color-outline-variant: #bfc8cc;
+  --md-sys-color-scrim: #000;
+  --md-sys-color-surface-bright: #f8f9fb; // neutral98
+
+  // custom variables
+  --md-sys-color-primary-container-low: #dcf5ff; // primary95
+  --md-sys-color-secondary-container-low: #ebf1ff; // secondary95
+  --md-sys-color-secondary-container-high: #a5c8ff; // secondary80
+  --md-sys-color-outline-variant-high: #dbe4e8; // neutral-variant90
+  --md-sys-color-box-shadow-3: 0px 1px 3px 0px rgba(0, 0, 0, 0.3),
+    0px 4px 8px 3px rgba(0, 0, 0, 0.15);
+}
+
+/* Winterglow dark theme. */
+@mixin winterglow-dark {
+  --md-sys-color-primary: #5ad5f9;
+  --md-sys-color-on-primary: #003542;
+  --md-sys-color-primary-container: #004e5f;
+  --md-sys-color-on-primary-container: #b4ebff;
+  --md-sys-color-secondary: #a5c8ff;
+  --md-sys-color-on-secondary: #00315e;
+  --md-sys-color-secondary-container: #003c71; // secondary25
+  --md-sys-color-on-secondary-container: #d4e3ff;
+  --md-sys-color-tertiary: #bec2ff;
+  --md-sys-color-on-tertiary: #1f2578;
+  --md-sys-color-tertiary-container: #373e90;
+  --md-sys-color-on-tertiary-container: #e0e0ff;
+  --md-sys-color-error: #ffb4ab;
+  --md-sys-color-error-container: #93000a;
+  --md-sys-color-on-error: #690005;
+  --md-sys-color-on-error-container: #ffdad6;
+  --md-sys-color-background: #191c1d;
+  --md-sys-color-on-background: #e1e3e4;
+  --md-sys-color-surface: #191c1d;
+  --md-sys-color-on-surface: #e1e3e4;
+  --md-sys-color-surface-variant: #293235; // neutral-variant20
+  --md-sys-color-on-surface-variant: #bfc8cc;
+  --md-sys-color-surface-container-highest: #323537; // neutral22
+  --md-sys-color-surface-container-high: #272a2c; // neutral17
+  --md-sys-color-surface-container: #111415; // neutral12
+  --md-sys-color-surface-container-low: #191c1d; // neutral10
+  --md-sys-color-surface-container-lowest: #111415; // neutral6
+  --md-sys-color-outline: #899296;
+  --md-sys-color-inverse-on-surface: #191c1d;
+  --md-sys-color-inverse-surface: #e1e3e4;
+  --md-sys-color-inverse-primary: #00677e;
+  --md-sys-color-shadow: #000;
+  --md-sys-color-surface-tint: #5ad5f9;
+  --md-sys-color-outline-variant: #40484b;
+  --md-sys-color-scrim: #000;
+  --md-sys-color-surface-bright: #393c3d; // neutral25
+
+  // custom variables
+  --md-sys-color-primary-container-low: #00677e; // primary40
+  --md-sys-color-secondary-container-low: #1d5fa6; // secondary40
+  --md-sys-color-secondary-container-high: #00315e; // secondary20
+  --md-sys-color-outline-variant-high: #343d40; // neutral-variant25
+  --md-sys-color-box-shadow-3: 0px 1px 3px 0px rgba(0, 0, 0, 0.3),
+    0px 4px 8px 3px rgba(0, 0, 0, 0.15);
+}
+
+/* Sugarplum reference definitions. Can use to define light/dark mixins. */
+@mixin sugarplum-ref {
+  --sugarplum-source: #803cb7;
+  /* primary */
+  --sugarplum-ref-palette-primary0: #000;
+  --sugarplum-ref-palette-primary4: #1a0031;
+  --sugarplum-ref-palette-primary5: #1e0037;
+  --sugarplum-ref-palette-primary6: #22003c;
+  --sugarplum-ref-palette-primary10: #2e004e;
+  --sugarplum-ref-palette-primary12: #330057;
+  --sugarplum-ref-palette-primary17: #42006e;
+  --sugarplum-ref-palette-primary20: #4b007d;
+  --sugarplum-ref-palette-primary22: #520086;
+  --sugarplum-ref-palette-primary24: #58038f;
+  --sugarplum-ref-palette-primary25: #5a0991;
+  --sugarplum-ref-palette-primary30: #661e9d;
+  --sugarplum-ref-palette-primary35: #732eaa;
+  --sugarplum-ref-palette-primary40: #803cb7;
+  --sugarplum-ref-palette-primary50: #9b57d2;
+  --sugarplum-ref-palette-primary60: #b672ef;
+  --sugarplum-ref-palette-primary70: #ce91ff;
+  --sugarplum-ref-palette-primary80: #e0b6ff;
+  --sugarplum-ref-palette-primary87: #ecd0ff;
+  --sugarplum-ref-palette-primary90: #f2daff;
+  --sugarplum-ref-palette-primary92: #f5e1ff;
+  --sugarplum-ref-palette-primary94: #f9e8ff;
+  --sugarplum-ref-palette-primary95: #faecff;
+  --sugarplum-ref-palette-primary96: #fcf0ff;
+  --sugarplum-ref-palette-primary98: #fff7fd;
+  --sugarplum-ref-palette-primary99: #fffbff;
+  --sugarplum-ref-palette-primary100: #fff;
+  /* secondary */
+  --sugarplum-ref-palette-secondary0: #000;
+  --sugarplum-ref-palette-secondary4: #00063a;
+  --sugarplum-ref-palette-secondary5: #000841;
+  --sugarplum-ref-palette-secondary6: #000a47;
+  --sugarplum-ref-palette-secondary10: #000f5c;
+  --sugarplum-ref-palette-secondary12: #001266;
+  --sugarplum-ref-palette-secondary17: #0e1f72;
+  --sugarplum-ref-palette-secondary20: #172778;
+  --sugarplum-ref-palette-secondary22: #1d2c7d;
+  --sugarplum-ref-palette-secondary24: #223181;
+  --sugarplum-ref-palette-secondary25: #243384;
+  --sugarplum-ref-palette-secondary30: #313f90;
+  --sugarplum-ref-palette-secondary35: #3d4b9c;
+  --sugarplum-ref-palette-secondary40: #4a58a9;
+  --sugarplum-ref-palette-secondary50: #6371c4;
+  --sugarplum-ref-palette-secondary60: #7d8be0;
+  --sugarplum-ref-palette-secondary70: #97a5fd;
+  --sugarplum-ref-palette-secondary80: #bbc3ff;
+  --sugarplum-ref-palette-secondary87: #d3d8ff;
+  --sugarplum-ref-palette-secondary90: #dee0ff;
+  --sugarplum-ref-palette-secondary92: #e5e6ff;
+  --sugarplum-ref-palette-secondary94: #edecff;
+  --sugarplum-ref-palette-secondary95: #f0efff;
+  --sugarplum-ref-palette-secondary96: #f4f2ff;
+  --sugarplum-ref-palette-secondary98: #fbf8ff;
+  --sugarplum-ref-palette-secondary99: #fffbff;
+  --sugarplum-ref-palette-secondary100: #fff;
+  /* tertiary */
+  --sugarplum-ref-palette-tertiary0: #000;
+  --sugarplum-ref-palette-tertiary4: #001115;
+  --sugarplum-ref-palette-tertiary5: #001419;
+  --sugarplum-ref-palette-tertiary6: #00161c;
+  --sugarplum-ref-palette-tertiary10: #001f26;
+  --sugarplum-ref-palette-tertiary12: #00232b;
+  --sugarplum-ref-palette-tertiary17: #002f38;
+  --sugarplum-ref-palette-tertiary20: #003640;
+  --sugarplum-ref-palette-tertiary22: #003a46;
+  --sugarplum-ref-palette-tertiary24: #003f4b;
+  --sugarplum-ref-palette-tertiary25: #00424e;
+  --sugarplum-ref-palette-tertiary30: #004e5c;
+  --sugarplum-ref-palette-tertiary35: #005b6b;
+  --sugarplum-ref-palette-tertiary40: #00687a;
+  --sugarplum-ref-palette-tertiary50: #008399;
+  --sugarplum-ref-palette-tertiary60: #009eb9;
+  --sugarplum-ref-palette-tertiary70: #2dbad8;
+  --sugarplum-ref-palette-tertiary80: #55d6f4;
+  --sugarplum-ref-palette-tertiary87: #8de7ff;
+  --sugarplum-ref-palette-tertiary90: #acedff;
+  --sugarplum-ref-palette-tertiary92: #bff0ff;
+  --sugarplum-ref-palette-tertiary94: #d0f4ff;
+  --sugarplum-ref-palette-tertiary95: #d8f6ff;
+  --sugarplum-ref-palette-tertiary96: #e0f8ff;
+  --sugarplum-ref-palette-tertiary98: #f0fbff;
+  --sugarplum-ref-palette-tertiary99: #f8fdff;
+  --sugarplum-ref-palette-tertiary100: #fff;
+  /* neutral */
+  --sugarplum-ref-palette-neutral0: #000;
+  --sugarplum-ref-palette-neutral4: #100d11;
+  --sugarplum-ref-palette-neutral5: #121013;
+  --sugarplum-ref-palette-neutral6: #151316;
+  --sugarplum-ref-palette-neutral10: #1d1b1e;
+  --sugarplum-ref-palette-neutral12: #211f22;
+  --sugarplum-ref-palette-neutral17: #2c292d;
+  --sugarplum-ref-palette-neutral20: #322f33;
+  --sugarplum-ref-palette-neutral22: #373437;
+  --sugarplum-ref-palette-neutral24: #3b383c;
+  --sugarplum-ref-palette-neutral25: #3e3a3e;
+  --sugarplum-ref-palette-neutral30: #494649;
+  --sugarplum-ref-palette-neutral35: #555155;
+  --sugarplum-ref-palette-neutral40: #615d61;
+  --sugarplum-ref-palette-neutral50: #7a767a;
+  --sugarplum-ref-palette-neutral60: #948f93;
+  --sugarplum-ref-palette-neutral70: #afaaae;
+  --sugarplum-ref-palette-neutral80: #cbc5c9;
+  --sugarplum-ref-palette-neutral87: #dfd8dd;
+  --sugarplum-ref-palette-neutral90: #e7e1e5;
+  --sugarplum-ref-palette-neutral92: #ede6eb;
+  --sugarplum-ref-palette-neutral94: #f3ecf1;
+  --sugarplum-ref-palette-neutral95: #f6eff3;
+  --sugarplum-ref-palette-neutral96: #f9f2f6;
+  --sugarplum-ref-palette-neutral98: #fff7fc;
+  --sugarplum-ref-palette-neutral99: #fffbff;
+  --sugarplum-ref-palette-neutral100: #fff;
+  /* neutral-variant */
+  --sugarplum-ref-palette-neutral-variant0: #000;
+  --sugarplum-ref-palette-neutral-variant4: #110d14;
+  --sugarplum-ref-palette-neutral-variant5: #140f17;
+  --sugarplum-ref-palette-neutral-variant6: #161219;
+  --sugarplum-ref-palette-neutral-variant10: #1f1a21;
+  --sugarplum-ref-palette-neutral-variant12: #231e26;
+  --sugarplum-ref-palette-neutral-variant17: #2d2830;
+  --sugarplum-ref-palette-neutral-variant20: #342e37;
+  --sugarplum-ref-palette-neutral-variant22: #38333b;
+  --sugarplum-ref-palette-neutral-variant24: #3d3740;
+  --sugarplum-ref-palette-neutral-variant25: #3f3942;
+  --sugarplum-ref-palette-neutral-variant30: #4b454d;
+  --sugarplum-ref-palette-neutral-variant35: #575059;
+  --sugarplum-ref-palette-neutral-variant40: #635c65;
+  --sugarplum-ref-palette-neutral-variant50: #7c757e;
+  --sugarplum-ref-palette-neutral-variant60: #968e98;
+  --sugarplum-ref-palette-neutral-variant70: #b1a8b3;
+  --sugarplum-ref-palette-neutral-variant80: #cdc3ce;
+  --sugarplum-ref-palette-neutral-variant87: #e1d7e2;
+  --sugarplum-ref-palette-neutral-variant90: #e9dfea;
+  --sugarplum-ref-palette-neutral-variant92: #efe5f0;
+  --sugarplum-ref-palette-neutral-variant94: #f5ebf6;
+  --sugarplum-ref-palette-neutral-variant95: #f8eef9;
+  --sugarplum-ref-palette-neutral-variant96: #fbf0fc;
+  --sugarplum-ref-palette-neutral-variant98: #fff7fd;
+  --sugarplum-ref-palette-neutral-variant99: #fffbff;
+  --sugarplum-ref-palette-neutral-variant100: #fff;
+  /* error */
+  --sugarplum-ref-palette-error0: #000;
+  --sugarplum-ref-palette-error4: #280001;
+  --sugarplum-ref-palette-error5: #2d0001;
+  --sugarplum-ref-palette-error6: #310001;
+  --sugarplum-ref-palette-error10: #410002;
+  --sugarplum-ref-palette-error12: #490002;
+  --sugarplum-ref-palette-error17: #5c0004;
+  --sugarplum-ref-palette-error20: #690005;
+  --sugarplum-ref-palette-error22: #710005;
+  --sugarplum-ref-palette-error24: #790006;
+  --sugarplum-ref-palette-error25: #7e0007;
+  --sugarplum-ref-palette-error30: #93000a;
+  --sugarplum-ref-palette-error35: #a80710;
+  --sugarplum-ref-palette-error40: #ba1a1a;
+  --sugarplum-ref-palette-error50: #de3730;
+  --sugarplum-ref-palette-error60: #ff5449;
+  --sugarplum-ref-palette-error70: #ff897d;
+  --sugarplum-ref-palette-error80: #ffb4ab;
+  --sugarplum-ref-palette-error87: #ffcfc9;
+  --sugarplum-ref-palette-error90: #ffdad6;
+  --sugarplum-ref-palette-error92: #ffe2de;
+  --sugarplum-ref-palette-error94: #ffe9e6;
+  --sugarplum-ref-palette-error95: #ffedea;
+  --sugarplum-ref-palette-error96: #fff0ee;
+  --sugarplum-ref-palette-error98: #fff8f7;
+  --sugarplum-ref-palette-error99: #fffbff;
+  --sugarplum-ref-palette-error100: #fff;
+}
+
+/* Sugarplum light theme. */
+@mixin sugarplum-light {
+  --md-sys-color-primary: #803cb7;
+  --md-sys-color-on-primary: #fff;
+  --md-sys-color-primary-container: #f2daff;
+  --md-sys-color-on-primary-container: #2e004e;
+  --md-sys-color-primary-fixed: #f2daff;
+  --md-sys-color-on-primary-fixed: #2e004e;
+  --md-sys-color-primary-fixed-dim: #e0b6ff;
+  --md-sys-color-on-primary-fixed-variant: #661e9d;
+  --md-sys-color-secondary: #4a58a9;
+  --md-sys-color-on-secondary: #fff;
+  --md-sys-color-secondary-container: #dee0ff; // secondary90
+  --md-sys-color-on-secondary-container: #000f5c;
+  --md-sys-color-secondary-fixed: #dee0ff;
+  --md-sys-color-on-secondary-fixed: #000f5c;
+  --md-sys-color-secondary-fixed-dim: #bbc3ff;
+  --md-sys-color-on-secondary-fixed-variant: #313f90;
+  --md-sys-color-tertiary: #00687a;
+  --md-sys-color-on-tertiary: #fff;
+  --md-sys-color-tertiary-container: #acedff;
+  --md-sys-color-on-tertiary-container: #001f26;
+  --md-sys-color-tertiary-fixed: #acedff;
+  --md-sys-color-on-tertiary-fixed: #001f26;
+  --md-sys-color-tertiary-fixed-dim: #55d6f4;
+  --md-sys-color-on-tertiary-fixed-variant: #004e5c;
+  --md-sys-color-error: #ba1a1a;
+  --md-sys-color-error-container: #ffdad6;
+  --md-sys-color-on-error: #fff;
+  --md-sys-color-on-error-container: #410002;
+  --md-sys-color-background: #fffbff;
+  --md-sys-color-on-background: #1d1b1e;
+  --md-sys-color-outline: #7c757e;
+  --md-sys-color-inverse-on-surface: #f6eff3;
+  --md-sys-color-inverse-surface: #322f33;
+  --md-sys-color-inverse-primary: #e0b6ff;
+  --md-sys-color-shadow: #000;
+  --md-sys-color-surface-tint: #803cb7;
+  --md-sys-color-outline-variant: #cdc3ce;
+  --md-sys-color-scrim: #000;
+  --md-sys-color-surface: #fff7fc;
+  --md-sys-color-on-surface: #1d1b1e;
+  --md-sys-color-surface-variant: #f5ebf6; // neutral-variant94
+  --md-sys-color-on-surface-variant: #4b454d;
+  --md-sys-color-surface-container-highest: #e7e1e5; // neutral90
+  --md-sys-color-surface-container-high: #ede6eb; // neutral92
+  --md-sys-color-surface-container: #f3ecf1; // neutral94
+  --md-sys-color-surface-container-low: #fffbff; // neutral99
+  --md-sys-color-surface-container-lowest: #fff; // neutral100
+  --md-sys-color-surface-dim: #dfd8dd;
+  --md-sys-color-surface-bright: #fff7fc;
+
+  // custom variables
+  --md-sys-color-primary-container-low: #faecff; // primary95
+  --md-sys-color-secondary-container-low: #f0efff; // secondary95
+  --md-sys-color-secondary-container-high: #bbc3ff; // secondary80
+  --md-sys-color-outline-variant-high: #e9dfea; // neutral-variant90
+  --md-sys-color-box-shadow-3: 0px 1px 3px 0px rgba(0, 0, 0, 0.2),
+    0px 4px 8px 3px rgba(0, 0, 0, 0.1);
+}
+
+/* Sugarplum dark theme. */
+@mixin sugarplum-dark {
+  --md-sys-color-primary: #e0b6ff;
+  --md-sys-color-on-primary: #4b007d;
+  --md-sys-color-primary-container: #661e9d;
+  --md-sys-color-on-primary-container: #f2daff;
+  --md-sys-color-primary-fixed: #f2daff;
+  --md-sys-color-on-primary-fixed: #2e004e;
+  --md-sys-color-primary-fixed-dim: #e0b6ff;
+  --md-sys-color-on-primary-fixed-variant: #661e9d;
+  --md-sys-color-secondary: #bbc3ff;
+  --md-sys-color-on-secondary: #172778;
+  --md-sys-color-secondary-container: #243384; // secondary25
+  --md-sys-color-on-secondary-container: #dee0ff;
+  --md-sys-color-secondary-fixed: #dee0ff;
+  --md-sys-color-on-secondary-fixed: #000f5c;
+  --md-sys-color-secondary-fixed-dim: #bbc3ff;
+  --md-sys-color-on-secondary-fixed-variant: #313f90;
+  --md-sys-color-tertiary: #55d6f4;
+  --md-sys-color-on-tertiary: #003640;
+  --md-sys-color-tertiary-container: #004e5c;
+  --md-sys-color-on-tertiary-container: #acedff;
+  --md-sys-color-tertiary-fixed: #acedff;
+  --md-sys-color-on-tertiary-fixed: #001f26;
+  --md-sys-color-tertiary-fixed-dim: #55d6f4;
+  --md-sys-color-on-tertiary-fixed-variant: #004e5c;
+  --md-sys-color-error: #ffb4ab;
+  --md-sys-color-error-container: #93000a;
+  --md-sys-color-on-error: #690005;
+  --md-sys-color-on-error-container: #ffdad6;
+  --md-sys-color-background: #1d1b1e;
+  --md-sys-color-on-background: #e7e1e5;
+  --md-sys-color-outline: #968e98;
+  --md-sys-color-inverse-on-surface: #1d1b1e;
+  --md-sys-color-inverse-surface: #e7e1e5;
+  --md-sys-color-inverse-primary: #803cb7;
+  --md-sys-color-shadow: #000;
+  --md-sys-color-surface-tint: #e0b6ff;
+  --md-sys-color-outline-variant: #4b454d;
+  --md-sys-color-scrim: #000;
+  --md-sys-color-surface: #151316;
+  --md-sys-color-on-surface: #cbc5c9;
+  --md-sys-color-surface-variant: #342e37; // neutral-variant20
+  --md-sys-color-on-surface-variant: #cdc3ce;
+  --md-sys-color-surface-container-highest: #373437; // neutral22
+  --md-sys-color-surface-container-high: #2c292d; // neutral17
+  --md-sys-color-surface-container: #211f22; // neutral12
+  --md-sys-color-surface-container-low: #1d1b1e; // neutral10
+  --md-sys-color-surface-container-lowest: #151316; // neutral6
+  --md-sys-color-surface-dim: #151316;
+  --md-sys-color-surface-bright: #3b383c; // neutral24
+
+  // custom variables
+  --ms-sys-color-primary-container-low: #803cb7; // primary40
+  --md-sys-color-secondary-container-low: #4a58a9; // secondary40
+  --md-sys-color-secondary-container-high: #172778; // secondary20
+  --md-sys-color-outline-variant-high: #3f3942; // neutral-variant25
+  --md-sys-color-box-shadow-3: 0px 1px 3px 0px rgba(0, 0, 0, 0.2),
+    0px 4px 8px 3px rgba(0, 0, 0, 0.1);
+}

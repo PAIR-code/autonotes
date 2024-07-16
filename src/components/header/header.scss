@@ -1,0 +1,80 @@
+/**
+ * Copyright 2024 Google LLC
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+@use "../../sass/colors";
+@use "../../sass/common";
+@use "../../sass/typescale";
+
+:host {
+  background: var(--md-sys-color-surface-variant);
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  left: common.$sidebar-width;
+  padding-top: common.$sidenav-padding;
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: 1;
+}
+
+@include common.viewport-small {
+  :host {
+    display: none;
+    left: 0;
+  }
+}
+
+.header {
+  @include common.flex-row-align-center;
+  border-bottom: 1px solid var(--md-sys-color-outline-variant);
+  box-sizing: border-box;
+  gap: common.$spacing-medium;
+  height: common.$header-height;
+  justify-content: space-between;
+  max-width: common.$main-column-max-width;
+  padding: 0 common.$panel-component-padding;
+  width: 100%;
+
+  .left,
+  .right {
+    @include common.flex-row-align-center;
+    gap: common.$spacing-medium;
+  }
+}
+
+h1 {
+  @include typescale.title-large;
+  margin: 0;
+}
+
+.action-button {
+  @include common.flex-row-align-center;
+  @include typescale.label-medium;
+  border: 1px solid var(--md-sys-color-primary);
+  border-radius: common.$spacing-xxl;
+  color: var(--md-sys-color-primary);
+  cursor: pointer;
+  gap: common.$spacing-small;
+  padding: common.$spacing-medium common.$spacing-large;
+
+  &:focus,
+  &:hover {
+    --pr-icon-color: var(--md-sys-color-secondary);
+    border-color: var(--md-sys-color-secondary);
+    color: var(--md-sys-color-secondary);
+  }
+}

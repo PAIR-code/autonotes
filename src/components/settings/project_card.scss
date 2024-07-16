@@ -1,0 +1,80 @@
+/**
+ * Copyright 2024 Google LLC
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+@use "../../sass/common";
+@use "../../sass/typescale";
+
+.card-wrapper {
+  display: grid;
+  gap: common.$spacing-xl;
+  grid-template-columns: repeat(3, 1fr);
+  padding-bottom: common.$spacing-xxl;
+  width: 100%;
+}
+
+@include common.viewport-small {
+  .card-wrapper {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@include common.viewport-xsmall {
+  .card-wrapper {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+.card {
+  @include common.flex-column;
+  background: var(--md-sys-color-surface);
+  border-radius: common.$spacing-medium;
+  color: var(--md-sys-color-on-surface);
+  cursor: pointer;
+  gap: common.$spacing-medium;
+  min-height: 100px;
+  padding: common.$spacing-large;
+
+  &.outlined {
+    border: 1px solid var(--md-sys-color-outline);
+  }
+
+  &.selected {
+    border: 3px solid var(--md-sys-color-primary);
+  }
+
+  &.template {
+    align-items: center;
+    background: none;
+    border: 2px dashed var(--md-sys-color-outline);
+    color: var(--md-sys-color-outline);
+    justify-content: center;
+  }
+}
+
+.card--title {
+  @include typescale.title-medium;
+}
+
+.card--description {
+  @include typescale.body-small;
+  color: var(--md-sys-color-on-surface-variant);
+}
+
+.card--date {
+  @include typescale.label-small;
+  margin-bottom: 0;
+  margin-top: auto;
+}
