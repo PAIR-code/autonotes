@@ -33,7 +33,7 @@
     "@types/uuid": "^9.0.8",
     "babel-jest": "^29.7.0",
     "jest": "^29.7.0",
-    "jest-environment-jsdom": "^29.7.0",
+    "jest-environment-jsdom": "^30.3.0",
     "micromark": "^4.0.0",
     "micromark-extension-gfm": "^3.0.0",
     "sanitize-html": "^2.13.0",
