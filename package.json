@@ -60,6 +60,6 @@
     "router5-plugin-browser": "^8.0.1",
     "style-loader": "^3.3.4",
     "tslib": "^2.6.2",
-    "uuid": "^9.0.1"
+    "uuid": "^14.0.0"
   }
 }
